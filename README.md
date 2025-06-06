@@ -46,3 +46,54 @@ int main() {
 ```
 
 ---
+
+## Problem: 2 (Find the First Repeating Element)
+
+**Description:** Given an array of N integers `(1 ≤ N ≤ 10⁵)`, find the `first element` that repeats more than `once`. If there is no such element, print `-1`.
+
+**Sample Input:**
+
+```
+7
+1 5 3 4 3 5 6
+```
+
+**Sample Output:**
+
+```
+3
+3 is the first element that appears again later.
+```
+
+**Solution:**
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+    vector<int> A(N);
+    for (int i = 0; i < N; ++i) {
+        cin >> A[i];
+    }
+
+    unordered_map<int, int> count;
+    for (int x : A) {
+        count[x]++;
+    }
+
+    for (int x : A) {
+        if (count[x] > 1) {
+            cout << x << '\n';
+            return 0;
+        }
+    }
+
+    cout << -1 << '\n';
+    return 0;
+}
+```
+
+---
