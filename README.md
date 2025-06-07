@@ -97,3 +97,61 @@ int main() {
 ```
 
 ---
+
+## Problem: 3 (Check if a Number is Prime)
+
+**Description:** Given an integer `N` (where `1 <= N <= 10^6`), determine whether it is a prime number. A prime number is a number greater than 1 that has no positive divisors other than 1 and itself.
+
+**Sample Input:**
+
+```
+17
+```
+
+**Sample Output:**
+
+```
+Yes
+```
+
+**Sample Input:**
+
+```
+15
+```
+
+**Sample Output:**
+
+```
+No
+```
+
+**Solution:**
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+bool isPrime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i <= sqrt(n); ++i) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+
+int main() {
+    int N;
+    cin >> N;
+
+    if (isPrime(N)) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
+
+    return 0;
+}
+```
+
+---
