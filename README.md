@@ -155,3 +155,36 @@ int main() {
 ```
 
 ---
+
+## Problem: 4 (Reverse a String)
+
+**Description:** Given a string `S`, reverse the string and print the reversed string. The length of the string `S` is between `1` and `10^5`.
+
+**Sample Input:**
+
+```
+hello
+```
+
+**Sample Output:**
+
+```
+olleh
+```
+
+**Solution:**
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string S;
+    cin >> S;
+    reverse(S.begin(), S.end());
+    cout << S << endl;
+    return 0;
+}
+```
+
+---
