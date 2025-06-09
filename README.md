@@ -188,3 +188,41 @@ int main() {
 ```
 
 ---
+
+## Problem: 5 (Calculate Factorial)
+
+**Description:** Given a non-negative integer N (where `0 <= N <= 12`), calculate and print its factorial. The factorial of a non-negative integer n, denoted by n!, is the product of all positive integers less than or equal to n.
+
+**Sample Input:**
+
+```
+5
+```
+
+**Sample Output:**
+
+```
+120
+```
+
+**Solution:**
+
+```C++
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+
+    long long factorial = 1;
+    for (int i = 1; i <= N; ++i) {
+        factorial *= i;
+    }
+
+    cout << factorial << endl;
+    return 0;
+}
+```
+
+---
