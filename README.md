@@ -1565,3 +1565,73 @@ int main() {
 ```
 
 ---
+
+## Problem: 34 (Count the Number of Islands (DFS))
+
+**Description:** You are given a grid with `R` rows and `C` columns (where `1 <= R, C <= 100`). Each cell is either `1` (land) or `0` (water). An island is a group of land cells connected horizontally or vertically (up, down, left, right). Cells that touch only diagonally are **not** connected. Print the number of islands in the grid.
+
+**Sample Input:**
+
+```
+5 5
+11000
+11000
+00100
+00011
+00011
+```
+
+**Sample Output:**
+
+```
+3
+```
+
+**Explanation:** The islands are the 2x2 block at the top-left, the single cell in the middle, and the 2x2 block at the bottom-right. The middle cell touches the bottom-right block only diagonally, so it is a separate island.
+
+**Solution:**
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+int R, C;
+vector<string> grid;
+
+// Visit every land cell connected to (r, c) and mark it as water
+void dfs(int r, int c) {
+    if (r < 0 || r >= R || c < 0 || c >= C) return;
+    if (grid[r][c] != '1') return;
+
+    grid[r][c] = '0';  // mark as visited
+
+    dfs(r - 1, c);
+    dfs(r + 1, c);
+    dfs(r, c - 1);
+    dfs(r, c + 1);
+}
+
+int main() {
+    cin >> R >> C;
+    grid.resize(R);
+    for (int i = 0; i < R; ++i)
+        cin >> grid[i];
+
+    int islands = 0;
+    for (int i = 0; i < R; ++i) {
+        for (int j = 0; j < C; ++j) {
+            if (grid[i][j] == '1') {
+                islands++;   // found a new island
+                dfs(i, j);   // sink the whole island
+            }
+        }
+    }
+
+    cout << islands << endl;
+    return 0;
+}
+```
+
+---
+
+write a problem by using dynamic programming.
