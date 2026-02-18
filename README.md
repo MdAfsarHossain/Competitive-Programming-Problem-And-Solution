@@ -1634,4 +1634,3 @@ int main() {
 
 ---
 
-write a problem by using dynamic programming.
