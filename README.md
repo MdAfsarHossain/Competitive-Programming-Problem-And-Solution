@@ -37,6 +37,7 @@
 | 33 | [Shortest Path in a Grid (BFS)](#problem-33-shortest-path-in-a-grid-bfs) |
 | 34 | [Count the Number of Islands (DFS)](#problem-34-count-the-number-of-islands-dfs) |
 | 35 | [Minimum Coin Change (Dynamic Programming)](#problem-35-minimum-coin-change-dynamic-programming) |
+| 36 | [Shortest Path in a Weighted Graph (Dijkstra)](#problem-36-shortest-path-in-a-weighted-graph-dijkstra) |
 
 ---
 
@@ -1683,6 +1684,80 @@ int main() {
     }
 
     cout << (dp[s] >= INF ? -1 : dp[s]) << endl;
+    return 0;
+}
+```
+
+---
+
+## Problem: 36 (Shortest Path in a Weighted Graph (Dijkstra))
+
+**Description:** You are given an undirected weighted graph with `N` nodes (numbered `1` to `N`) and `M` edges, where `1 <= N <= 100000`, `0 <= M <= 200000`, and each edge weight `w` satisfies `1 <= w <= 1000000`. Print the shortest distance from node `1` to node `N`. If node `N` is not reachable from node `1`, print `-1`.
+
+**Sample Input:**
+
+```
+5 6
+1 2 2
+1 3 4
+2 3 1
+2 4 7
+3 5 3
+4 5 1
+```
+
+**Sample Output:**
+
+```
+6
+```
+
+**Explanation:** The shortest path is `1 -> 2 -> 3 -> 5` with cost `2 + 1 + 3 = 6`. The direct route `1 -> 3 -> 5` costs `7`, and `1 -> 2 -> 4 -> 5` costs `10`.
+
+**Approach:** Dijkstra's algorithm with a min-priority queue. Keep `dist[v]`, the best known distance to each node. Repeatedly pop the node with the smallest distance, and relax each of its edges: if `dist[u] + w < dist[v]`, update `dist[v]` and push it. Stale queue entries are skipped. This works because all weights are positive. Time complexity is `O((N + M) log N)`.
+
+**Solution:**
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+
+    vector<vector<pair<int, int>>> adj(n + 1);  // (neighbor, weight)
+    for (int i = 0; i < m; ++i) {
+        int u, v, w;
+        cin >> u >> v >> w;
+        adj[u].push_back({v, w});
+        adj[v].push_back({u, w});
+    }
+
+    const long long INF = LLONG_MAX;
+    vector<long long> dist(n + 1, INF);
+    priority_queue<pair<long long, int>,
+                   vector<pair<long long, int>>,
+                   greater<pair<long long, int>>> pq;
+
+    dist[1] = 0;
+    pq.push({0, 1});
+
+    while (!pq.empty()) {
+        auto [d, u] = pq.top();
+        pq.pop();
+
+        if (d > dist[u]) continue;  // stale entry
+
+        for (auto [v, w] : adj[u]) {
+            if (dist[u] + w < dist[v]) {
+                dist[v] = dist[u] + w;
+                pq.push({dist[v], v});
+            }
+        }
+    }
+
+    cout << (dist[n] == INF ? -1 : dist[n]) << endl;
     return 0;
 }
 ```
