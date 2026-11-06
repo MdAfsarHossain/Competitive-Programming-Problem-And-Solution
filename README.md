@@ -226,3 +226,45 @@ int main() {
 ```
 
 ---
+
+## Problem: 6 (Sum of Array Elements)
+
+**Description:** Given an array of N integers (where `1 <= N <= 10^5` and `1 <= A[i] <= 10^9`), calculate and print the sum of all elements.
+
+**Sample Input:**
+
+```
+5
+1 2 3 4 5
+```
+
+**Sample Output:**
+
+```
+15
+```
+
+**Solution:**
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+
+    long long sum = 0;  // sum can reach 10^14, so int is not enough
+    for (int i = 0; i < N; ++i) {
+        int x;
+        cin >> x;
+        sum += x;
+    }
+
+    cout << sum << endl;
+    return 0;
+}
+```
+
+---
+
