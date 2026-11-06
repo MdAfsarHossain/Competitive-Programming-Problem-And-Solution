@@ -268,3 +268,40 @@ int main() {
 
 ---
 
+## Problem: 7 (Find the Maximum Element)
+
+**Description:** Given an array of N integers (where `1 <= N <= 10^5` and `-10^9 <= A[i] <= 10^9`), find and print the largest element.
+
+**Sample Input:**
+
+```
+6
+3 -1 7 2 9 4
+```
+
+**Sample Output:**
+
+```
+9
+```
+
+**Solution:**
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+    vector<int> A(N);
+
+    for (int i = 0; i < N; ++i)
+        cin >> A[i];
+
+    cout << *max_element(A.begin(), A.end()) << endl;
+    return 0;
+}
+```
+
+---
