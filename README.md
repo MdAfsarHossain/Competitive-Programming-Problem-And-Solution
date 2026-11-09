@@ -672,3 +672,51 @@ int main() {
 ```
 
 ---
+
+## Problem: 17 (Second Largest Element)
+
+**Description:** Given an array of N integers (where `1 <= N <= 10^5` and `-10^9 <= A[i] <= 10^9`), print the second largest **distinct** value. If there is no such value, print `-1`.
+
+**Sample Input:**
+
+```
+5
+4 9 2 9 7
+```
+
+**Sample Output:**
+
+```
+7
+```
+
+**Solution:**
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+
+    set<int> distinct;  // sorted, unique values
+    for (int i = 0; i < N; ++i) {
+        int x;
+        cin >> x;
+        distinct.insert(x);
+    }
+
+    if (distinct.size() < 2) {
+        cout << -1 << endl;
+    } else {
+        auto it = distinct.rbegin();
+        ++it;
+        cout << *it << endl;
+    }
+
+    return 0;
+}
+```
+
+---
