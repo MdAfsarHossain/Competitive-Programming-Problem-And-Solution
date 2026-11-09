@@ -305,3 +305,56 @@ int main() {
 ```
 
 ---
+
+## Problem: 8 (Check Palindrome String)
+
+**Description:** Given a string `S` (length between `1` and `10^5`, no spaces), determine whether it reads the same forwards and backwards. Print `Yes` if it is a palindrome, otherwise print `No`.
+
+**Sample Input:**
+
+```
+madam
+```
+
+**Sample Output:**
+
+```
+Yes
+```
+
+**Sample Input:**
+
+```
+hello
+```
+
+**Sample Output:**
+
+```
+No
+```
+
+**Solution:**
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string S;
+    cin >> S;
+
+    string R = S;
+    reverse(R.begin(), R.end());
+
+    if (S == R) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
+
+    return 0;
+}
+```
+
+---
