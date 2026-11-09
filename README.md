@@ -397,3 +397,43 @@ int main() {
 ```
 
 ---
+
+## Problem: 10 (Nth Fibonacci Number)
+
+**Description:** Given an integer `N` (where `0 <= N <= 40`), print the Nth Fibonacci number. The sequence is defined as `F(0) = 0`, `F(1) = 1`, and `F(n) = F(n-1) + F(n-2)` for `n >= 2`.
+
+**Sample Input:**
+
+```
+10
+```
+
+**Sample Output:**
+
+```
+55
+```
+
+**Solution:**
+
+```C++
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+
+    long long a = 0, b = 1;  // F(0), F(1)
+    for (int i = 0; i < N; ++i) {
+        long long next = a + b;
+        a = b;
+        b = next;
+    }
+
+    cout << a << endl;
+    return 0;
+}
+```
+
+---
