@@ -358,3 +358,42 @@ int main() {
 ```
 
 ---
+
+## Problem: 9 (Count Vowels in a String)
+
+**Description:** Given a string `S` of lowercase English letters (length between `1` and `10^5`), count how many vowels (`a`, `e`, `i`, `o`, `u`) it contains and print the count.
+
+**Sample Input:**
+
+```
+programming
+```
+
+**Sample Output:**
+
+```
+3
+```
+
+**Solution:**
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string S;
+    cin >> S;
+
+    int count = 0;
+    for (char c : S) {
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')
+            count++;
+    }
+
+    cout << count << endl;
+    return 0;
+}
+```
+
+---
