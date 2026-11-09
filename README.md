@@ -626,3 +626,49 @@ int main() {
 ```
 
 ---
+
+## Problem: 16 (Count Even and Odd Numbers)
+
+**Description:** Given an array of N integers (where `1 <= N <= 10^5` and `1 <= A[i] <= 10^9`), count how many are even and how many are odd.
+
+**Sample Input:**
+
+```
+5
+1 2 3 4 5
+```
+
+**Sample Output:**
+
+```
+Even: 2
+Odd: 3
+```
+
+**Solution:**
+
+```C++
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+
+    int even = 0, odd = 0;
+    for (int i = 0; i < N; ++i) {
+        int x;
+        cin >> x;
+        if (x % 2 == 0)
+            even++;
+        else
+            odd++;
+    }
+
+    cout << "Even: " << even << '\n';
+    cout << "Odd: " << odd << '\n';
+    return 0;
+}
+```
+
+---
