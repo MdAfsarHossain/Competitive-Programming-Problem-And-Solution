@@ -513,3 +513,42 @@ int main() {
 ```
 
 ---
+
+## Problem: 13 (Reverse a Number)
+
+**Description:** Given a non-negative integer `N` (where `0 <= N <= 10^9`), print the number obtained by reversing its digits. Leading zeros in the result are dropped (for example, `1200` becomes `21`).
+
+**Sample Input:**
+
+```
+12345
+```
+
+**Sample Output:**
+
+```
+54321
+```
+
+**Solution:**
+
+```C++
+#include <iostream>
+using namespace std;
+
+int main() {
+    long long N;
+    cin >> N;
+
+    long long rev = 0;
+    while (N > 0) {
+        rev = rev * 10 + N % 10;
+        N /= 10;
+    }
+
+    cout << rev << endl;
+    return 0;
+}
+```
+
+---
