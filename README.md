@@ -811,3 +811,53 @@ int main() {
 ```
 
 ---
+
+## Problem: 20 (Power of Two)
+
+**Description:** Given an integer `N` (where `1 <= N <= 10^9`), determine whether it is a power of two. Print `Yes` if it is, otherwise print `No`.
+
+**Sample Input:**
+
+```
+16
+```
+
+**Sample Output:**
+
+```
+Yes
+```
+
+**Sample Input:**
+
+```
+18
+```
+
+**Sample Output:**
+
+```
+No
+```
+
+**Solution:**
+
+```C++
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+
+    // A power of two has exactly one bit set, so N & (N - 1) is 0
+    if (N > 0 && (N & (N - 1)) == 0)
+        cout << "Yes" << endl;
+    else
+        cout << "No" << endl;
+
+    return 0;
+}
+```
+
+---
