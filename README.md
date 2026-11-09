@@ -437,3 +437,40 @@ int main() {
 ```
 
 ---
+
+## Problem: 11 (Even or Odd)
+
+**Description:** Given an integer `N` (where `1 <= N <= 10^9`), print `Even` if it is divisible by 2, otherwise print `Odd`.
+
+**Sample Input:**
+
+```
+7
+```
+
+**Sample Output:**
+
+```
+Odd
+```
+
+**Solution:**
+
+```C++
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+
+    if (N % 2 == 0)
+        cout << "Even" << endl;
+    else
+        cout << "Odd" << endl;
+
+    return 0;
+}
+```
+
+---
