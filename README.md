@@ -592,3 +592,37 @@ int main() {
 ```
 
 ---
+
+## Problem: 15 (LCM of Two Numbers)
+
+**Description:** Given two positive integers `A` and `B` (where `1 <= A, B <= 10^6`), print their least common multiple (LCM).
+
+**Sample Input:**
+
+```
+4 6
+```
+
+**Sample Output:**
+
+```
+12
+```
+
+**Solution:**
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    long long A, B;
+    cin >> A >> B;
+
+    long long g = __gcd(A, B);
+    cout << (A / g) * B << endl;  // divide first to avoid overflow
+    return 0;
+}
+```
+
+---
