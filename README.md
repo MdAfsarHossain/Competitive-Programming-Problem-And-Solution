@@ -474,3 +474,42 @@ int main() {
 ```
 
 ---
+
+## Problem: 12 (Sum of Digits)
+
+**Description:** Given a non-negative integer `N` (where `0 <= N <= 10^18`), print the sum of its digits.
+
+**Sample Input:**
+
+```
+12345
+```
+
+**Sample Output:**
+
+```
+15
+```
+
+**Solution:**
+
+```C++
+#include <iostream>
+using namespace std;
+
+int main() {
+    long long N;
+    cin >> N;
+
+    int sum = 0;
+    while (N > 0) {
+        sum += N % 10;
+        N /= 10;
+    }
+
+    cout << sum << endl;
+    return 0;
+}
+```
+
+---
