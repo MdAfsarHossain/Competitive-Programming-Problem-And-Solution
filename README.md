@@ -762,3 +762,52 @@ int main() {
 ```
 
 ---
+
+## Problem: 19 (Linear Search)
+
+**Description:** Given an array of N integers (where `1 <= N <= 10^5`) and a target value `X`, print the 0-based index of the first occurrence of `X`. If `X` is not in the array, print `-1`.
+
+**Sample Input:**
+
+```
+5
+10 20 30 40 50
+30
+```
+
+**Sample Output:**
+
+```
+2
+```
+
+**Solution:**
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+    vector<int> A(N);
+
+    for (int i = 0; i < N; ++i)
+        cin >> A[i];
+
+    int X;
+    cin >> X;
+
+    for (int i = 0; i < N; ++i) {
+        if (A[i] == X) {
+            cout << i << endl;
+            return 0;
+        }
+    }
+
+    cout << -1 << endl;
+    return 0;
+}
+```
+
+---
