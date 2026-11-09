@@ -552,3 +552,43 @@ int main() {
 ```
 
 ---
+
+## Problem: 14 (GCD of Two Numbers)
+
+**Description:** Given two positive integers `A` and `B` (where `1 <= A, B <= 10^9`), print their greatest common divisor (GCD).
+
+**Sample Input:**
+
+```
+12 18
+```
+
+**Sample Output:**
+
+```
+6
+```
+
+**Solution:**
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    long long A, B;
+    cin >> A >> B;
+
+    // Euclidean algorithm
+    while (B != 0) {
+        long long temp = A % B;
+        A = B;
+        B = temp;
+    }
+
+    cout << A << endl;
+    return 0;
+}
+```
+
+---
