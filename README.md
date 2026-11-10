@@ -894,3 +894,54 @@ int main() {
 ```
 
 ---
+
+## Problem: 22 (Count Primes up to N)
+
+**Description:** Given an integer `N` (where `1 <= N <= 10^6`), print how many prime numbers are less than or equal to `N`.
+
+**Sample Input:**
+
+```
+10
+```
+
+**Sample Output:**
+
+```
+4
+```
+
+**Explanation:** The primes up to 10 are 2, 3, 5 and 7.
+
+**Solution:**
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+
+    // Sieve of Eratosthenes
+    vector<bool> isPrime(N + 1, true);
+    isPrime[0] = false;
+    if (N >= 1) isPrime[1] = false;
+
+    for (long long i = 2; i * i <= N; ++i) {
+        if (isPrime[i]) {
+            for (long long j = i * i; j <= N; j += i)
+                isPrime[j] = false;
+        }
+    }
+
+    int count = 0;
+    for (int i = 2; i <= N; ++i)
+        if (isPrime[i]) count++;
+
+    cout << count << endl;
+    return 0;
+}
+```
+
+---
