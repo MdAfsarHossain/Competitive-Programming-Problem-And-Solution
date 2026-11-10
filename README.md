@@ -1,3 +1,40 @@
+## Problem List
+
+| No. | Problem |
+| --- | ------- |
+| 1 | [Count Frequency of Elements](#problem-1-count-frequency-of-elements) |
+| 2 | [Find the First Repeating Element](#problem-2-find-the-first-repeating-element) |
+| 3 | [Check if a Number is Prime](#problem-3-check-if-a-number-is-prime) |
+| 4 | [Reverse a String](#problem-4-reverse-a-string) |
+| 5 | [Calculate Factorial](#problem-5-calculate-factorial) |
+| 6 | [Sum of Array Elements](#problem-6-sum-of-array-elements) |
+| 7 | [Find the Maximum Element](#problem-7-find-the-maximum-element) |
+| 8 | [Check Palindrome String](#problem-8-check-palindrome-string) |
+| 9 | [Count Vowels in a String](#problem-9-count-vowels-in-a-string) |
+| 10 | [Nth Fibonacci Number](#problem-10-nth-fibonacci-number) |
+| 11 | [Even or Odd](#problem-11-even-or-odd) |
+| 12 | [Sum of Digits](#problem-12-sum-of-digits) |
+| 13 | [Reverse a Number](#problem-13-reverse-a-number) |
+| 14 | [GCD of Two Numbers](#problem-14-gcd-of-two-numbers) |
+| 15 | [LCM of Two Numbers](#problem-15-lcm-of-two-numbers) |
+| 16 | [Count Even and Odd Numbers](#problem-16-count-even-and-odd-numbers) |
+| 17 | [Second Largest Element](#problem-17-second-largest-element) |
+| 18 | [Reverse an Array](#problem-18-reverse-an-array) |
+| 19 | [Linear Search](#problem-19-linear-search) |
+| 20 | [Power of Two](#problem-20-power-of-two) |
+| 21 | [Sum of First N Natural Numbers](#problem-21-sum-of-first-n-natural-numbers) |
+| 22 | [Count Primes up to N](#problem-22-count-primes-up-to-n) |
+| 23 | [Check if Array is Sorted](#problem-23-check-if-array-is-sorted) |
+| 24 | [Count Distinct Elements](#problem-24-count-distinct-elements) |
+| 25 | [Convert to Uppercase](#problem-25-convert-to-uppercase) |
+| 26 | [Count Occurrences of a Character](#problem-26-count-occurrences-of-a-character) |
+| 27 | [Leap Year](#problem-27-leap-year) |
+| 28 | [Multiplication Table](#problem-28-multiplication-table) |
+| 29 | [Check Palindrome Number](#problem-29-check-palindrome-number) |
+| 30 | [Pair With Given Sum](#problem-30-pair-with-given-sum) |
+
+---
+
 ## Problem: 1 (Count Frequency of Elements)
 
 **Description:** Given an array of N integers (where `1 <= N <= 10^5` and values are in range `1 <= A[i] <= 10^5`), count how many times each number appears and print the frequency for all unique elements in increasing order.
