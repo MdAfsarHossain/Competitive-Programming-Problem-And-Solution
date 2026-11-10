@@ -987,3 +987,44 @@ int main() {
 ```
 
 ---
+
+## Problem: 24 (Count Distinct Elements)
+
+**Description:** Given an array of N integers (where `1 <= N <= 10^5` and `1 <= A[i] <= 10^9`), print the number of distinct values in it.
+
+**Sample Input:**
+
+```
+6
+1 2 2 3 3 3
+```
+
+**Sample Output:**
+
+```
+3
+```
+
+**Solution:**
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+
+    unordered_set<int> seen;
+    for (int i = 0; i < N; ++i) {
+        int x;
+        cin >> x;
+        seen.insert(x);
+    }
+
+    cout << seen.size() << endl;
+    return 0;
+}
+```
+
+---
