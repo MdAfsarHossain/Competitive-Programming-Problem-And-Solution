@@ -945,3 +945,45 @@ int main() {
 ```
 
 ---
+
+## Problem: 23 (Check if Array is Sorted)
+
+**Description:** Given an array of N integers (where `1 <= N <= 10^5`), determine whether it is sorted in non-decreasing order. Print `Yes` if it is, otherwise print `No`.
+
+**Sample Input:**
+
+```
+5
+1 2 2 4 7
+```
+
+**Sample Output:**
+
+```
+Yes
+```
+
+**Solution:**
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+    vector<int> A(N);
+
+    for (int i = 0; i < N; ++i)
+        cin >> A[i];
+
+    if (is_sorted(A.begin(), A.end()))
+        cout << "Yes" << endl;
+    else
+        cout << "No" << endl;
+
+    return 0;
+}
+```
+
+---
