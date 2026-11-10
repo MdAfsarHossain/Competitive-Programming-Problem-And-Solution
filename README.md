@@ -861,3 +861,36 @@ int main() {
 ```
 
 ---
+
+## Problem: 21 (Sum of First N Natural Numbers)
+
+**Description:** Given an integer `N` (where `1 <= N <= 10^9`), print the sum `1 + 2 + ... + N`.
+
+**Sample Input:**
+
+```
+100
+```
+
+**Sample Output:**
+
+```
+5050
+```
+
+**Solution:**
+
+```C++
+#include <iostream>
+using namespace std;
+
+int main() {
+    long long N;
+    cin >> N;
+
+    cout << N * (N + 1) / 2 << endl;
+    return 0;
+}
+```
+
+---
