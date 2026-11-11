@@ -1101,3 +1101,42 @@ int main() {
 ```
 
 ---
+
+## Problem: 26 (Count Occurrences of a Character)
+
+**Description:** Given a string `S` (length between `1` and `10^5`, no spaces) and a character `C`, print how many times `C` appears in `S`.
+
+**Sample Input:**
+
+```
+banana
+a
+```
+
+**Sample Output:**
+
+```
+3
+```
+
+**Solution:**
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string S;
+    char C;
+    cin >> S >> C;
+
+    int count = 0;
+    for (char ch : S)
+        if (ch == C) count++;
+
+    cout << count << endl;
+    return 0;
+}
+```
+
+---
