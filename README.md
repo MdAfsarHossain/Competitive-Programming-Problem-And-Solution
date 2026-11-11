@@ -1065,3 +1065,39 @@ int main() {
 ```
 
 ---
+
+## Problem: 25 (Convert to Uppercase)
+
+**Description:** Given a string `S` of lowercase English letters (length between `1` and `10^5`), print the string with every letter converted to uppercase.
+
+**Sample Input:**
+
+```
+hello
+```
+
+**Sample Output:**
+
+```
+HELLO
+```
+
+**Solution:**
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string S;
+    cin >> S;
+
+    for (char &c : S)
+        c = toupper(c);
+
+    cout << S << endl;
+    return 0;
+}
+```
+
+---
