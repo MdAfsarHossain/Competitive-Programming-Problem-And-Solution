@@ -1140,3 +1140,52 @@ int main() {
 ```
 
 ---
+
+## Problem: 27 (Leap Year)
+
+**Description:** Given a year `Y` (where `1 <= Y <= 10^4`), print `Yes` if it is a leap year, otherwise print `No`. A year is a leap year if it is divisible by 4, except for years divisible by 100 that are not divisible by 400.
+
+**Sample Input:**
+
+```
+2024
+```
+
+**Sample Output:**
+
+```
+Yes
+```
+
+**Sample Input:**
+
+```
+1900
+```
+
+**Sample Output:**
+
+```
+No
+```
+
+**Solution:**
+
+```C++
+#include <iostream>
+using namespace std;
+
+int main() {
+    int Y;
+    cin >> Y;
+
+    if ((Y % 4 == 0 && Y % 100 != 0) || Y % 400 == 0)
+        cout << "Yes" << endl;
+    else
+        cout << "No" << endl;
+
+    return 0;
+}
+```
+
+---
