@@ -1233,3 +1233,58 @@ int main() {
 ```
 
 ---
+
+## Problem: 29 (Check Palindrome Number)
+
+**Description:** Given a non-negative integer `N` (where `0 <= N <= 10^9`), determine whether it reads the same forwards and backwards. Print `Yes` if it is a palindrome, otherwise print `No`.
+
+**Sample Input:**
+
+```
+121
+```
+
+**Sample Output:**
+
+```
+Yes
+```
+
+**Sample Input:**
+
+```
+123
+```
+
+**Sample Output:**
+
+```
+No
+```
+
+**Solution:**
+
+```C++
+#include <iostream>
+using namespace std;
+
+int main() {
+    long long N;
+    cin >> N;
+
+    long long original = N, rev = 0;
+    while (N > 0) {
+        rev = rev * 10 + N % 10;
+        N /= 10;
+    }
+
+    if (original == rev)
+        cout << "Yes" << endl;
+    else
+        cout << "No" << endl;
+
+    return 0;
+}
+```
+
+---
