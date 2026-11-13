@@ -1288,3 +1288,56 @@ int main() {
 ```
 
 ---
+
+## Problem: 30 (Pair With Given Sum)
+
+**Description:** Given an array of N integers (where `1 <= N <= 10^5` and `1 <= A[i] <= 10^9`) and a target sum `K` (where `1 <= K <= 2 * 10^9`), determine whether there are two elements at different positions whose sum equals `K`. Print `Yes` if such a pair exists, otherwise print `No`.
+
+**Sample Input:**
+
+```
+4
+2 7 11 15
+9
+```
+
+**Sample Output:**
+
+```
+Yes
+```
+
+**Explanation:** `2 + 7 = 9`.
+
+**Solution:**
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+    vector<long long> A(N);
+
+    for (int i = 0; i < N; ++i)
+        cin >> A[i];
+
+    long long K;
+    cin >> K;
+
+    unordered_set<long long> seen;
+    for (long long x : A) {
+        if (seen.count(K - x)) {
+            cout << "Yes" << endl;
+            return 0;
+        }
+        seen.insert(x);
+    }
+
+    cout << "No" << endl;
+    return 0;
+}
+```
+
+---
