@@ -32,6 +32,7 @@
 | 28 | [Multiplication Table](#problem-28-multiplication-table) |
 | 29 | [Check Palindrome Number](#problem-29-check-palindrome-number) |
 | 30 | [Pair With Given Sum](#problem-30-pair-with-given-sum) |
+| 31 | [Find the Second Largest Number (Single Pass)](#problem-31-find-the-second-largest-number-single-pass) |
 
 ---
 
@@ -1336,6 +1337,55 @@ int main() {
     }
 
     cout << "No" << endl;
+    return 0;
+}
+```
+
+---
+
+## Problem: 31 (Find the Second Largest Number (Single Pass))
+
+**Description:** Given an array of N distinct integers (where `2 <= N <= 10^5` and `-10^9 <= A[i] <= 10^9`), find and print the second largest number. Solve it in a single pass over the array using only O(1) extra memory (no sorting, no extra containers).
+
+**Sample Input:**
+
+```
+6
+1 10 34 35 12 7
+```
+
+**Sample Output:**
+
+```
+34
+```
+
+**Explanation:** The largest number is 35 and the second largest is 34.
+
+**Solution:**
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+
+    long long first = LLONG_MIN, second = LLONG_MIN;  // largest and second largest so far
+    for (int i = 0; i < N; ++i) {
+        long long x;
+        cin >> x;
+
+        if (x > first) {
+            second = first;
+            first = x;
+        } else if (x > second) {
+            second = x;
+        }
+    }
+
+    cout << second << endl;
     return 0;
 }
 ```
