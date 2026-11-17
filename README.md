@@ -33,6 +33,7 @@
 | 29 | [Check Palindrome Number](#problem-29-check-palindrome-number) |
 | 30 | [Pair With Given Sum](#problem-30-pair-with-given-sum) |
 | 31 | [Find the Second Largest Number (Single Pass)](#problem-31-find-the-second-largest-number-single-pass) |
+| 32 | [Find the Third Largest Number](#problem-32-find-the-third-largest-number) |
 
 ---
 
@@ -1386,6 +1387,80 @@ int main() {
     }
 
     cout << second << endl;
+    return 0;
+}
+```
+
+---
+
+## Problem: 32 (Find the Third Largest Number)
+
+**Description:** Given an array of N integers (where `1 <= N <= 10^5` and `-10^9 <= A[i] <= 10^9`), find and print the third largest **distinct** value. If the array has fewer than 3 distinct values, print `-1`. Solve it in a single pass using O(1) extra memory.
+
+**Sample Input:**
+
+```
+7
+5 12 12 9 3 20 9
+```
+
+**Sample Output:**
+
+```
+9
+```
+
+**Explanation:** The distinct values in decreasing order are 20, 12, 9, 5, 3, so the third largest is 9.
+
+**Sample Input:**
+
+```
+4
+7 7 3 3
+```
+
+**Sample Output:**
+
+```
+-1
+```
+
+**Solution:**
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+
+    // Three largest distinct values seen so far (LLONG_MIN means "not found yet")
+    long long first = LLONG_MIN, second = LLONG_MIN, third = LLONG_MIN;
+    for (int i = 0; i < N; ++i) {
+        long long x;
+        cin >> x;
+
+        if (x == first || x == second || x == third)
+            continue;  // skip duplicates
+
+        if (x > first) {
+            third = second;
+            second = first;
+            first = x;
+        } else if (x > second) {
+            third = second;
+            second = x;
+        } else if (x > third) {
+            third = x;
+        }
+    }
+
+    if (third == LLONG_MIN)
+        cout << -1 << endl;
+    else
+        cout << third << endl;
+
     return 0;
 }
 ```
