@@ -34,6 +34,8 @@
 | 30 | [Pair With Given Sum](#problem-30-pair-with-given-sum) |
 | 31 | [Find the Second Largest Number (Single Pass)](#problem-31-find-the-second-largest-number-single-pass) |
 | 32 | [Find the Third Largest Number](#problem-32-find-the-third-largest-number) |
+| 33 | [Shortest Path in a Grid (BFS)](#problem-33-shortest-path-in-a-grid-bfs) |
+| 34 | [Count the Number of Islands (DFS)](#problem-34-count-the-number-of-islands-dfs) |
 
 ---
 
@@ -1466,3 +1468,170 @@ int main() {
 ```
 
 ---
+
+## Problem: 33 (Shortest Path in a Grid (BFS))
+
+**Description:** You are given a grid with `R` rows and `C` columns (where `1 <= R, C <= 1000`). Each cell is one of:
+
+- `.` an open cell
+- `#` a wall (cannot be entered)
+- `S` the start cell (exactly one)
+- `E` the end cell (exactly one)
+
+In one move you can go up, down, left or right to a neighbouring open cell (`S` and `E` are also open). Print the minimum number of moves needed to get from `S` to `E`. If `E` cannot be reached, print `-1`.
+
+**Sample Input:**
+
+```
+4 4
+S..#
+##.#
+....
+.##E
+```
+
+**Sample Output:**
+
+```
+6
+```
+
+**Explanation:** One shortest path is: `(0,0) -> (0,1) -> (0,2) -> (1,2) -> (2,2) -> (2,3) -> (3,3)`.
+
+**Sample Input:**
+
+```
+2 2
+S#
+#E
+```
+
+**Sample Output:**
+
+```
+-1
+```
+
+**Solution:**
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int R, C;
+    cin >> R >> C;
+
+    vector<string> grid(R);
+    int sr = 0, sc = 0, er = 0, ec = 0;
+    for (int i = 0; i < R; ++i) {
+        cin >> grid[i];
+        for (int j = 0; j < C; ++j) {
+            if (grid[i][j] == 'S') { sr = i; sc = j; }
+            if (grid[i][j] == 'E') { er = i; ec = j; }
+        }
+    }
+
+    // BFS: the first time we reach a cell is via a shortest path
+    vector<vector<int>> dist(R, vector<int>(C, -1));
+    queue<pair<int, int>> q;
+    dist[sr][sc] = 0;
+    q.push({sr, sc});
+
+    int dr[] = {-1, 1, 0, 0};
+    int dc[] = {0, 0, -1, 1};
+
+    while (!q.empty()) {
+        auto [r, c] = q.front();
+        q.pop();
+
+        if (r == er && c == ec)
+            break;
+
+        for (int d = 0; d < 4; ++d) {
+            int nr = r + dr[d];
+            int nc = c + dc[d];
+            if (nr < 0 || nr >= R || nc < 0 || nc >= C) continue;
+            if (grid[nr][nc] == '#' || dist[nr][nc] != -1) continue;
+
+            dist[nr][nc] = dist[r][c] + 1;
+            q.push({nr, nc});
+        }
+    }
+
+    cout << dist[er][ec] << endl;
+    return 0;
+}
+```
+
+---
+
+## Problem: 34 (Count the Number of Islands (DFS))
+
+**Description:** You are given a grid with `R` rows and `C` columns (where `1 <= R, C <= 100`). Each cell is either `1` (land) or `0` (water). An island is a group of land cells connected horizontally or vertically (up, down, left, right). Cells that touch only diagonally are **not** connected. Print the number of islands in the grid.
+
+**Sample Input:**
+
+```
+5 5
+11000
+11000
+00100
+00011
+00011
+```
+
+**Sample Output:**
+
+```
+3
+```
+
+**Explanation:** The islands are the 2x2 block at the top-left, the single cell in the middle, and the 2x2 block at the bottom-right. The middle cell touches the bottom-right block only diagonally, so it is a separate island.
+
+**Solution:**
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+
+int R, C;
+vector<string> grid;
+
+// Visit every land cell connected to (r, c) and mark it as water
+void dfs(int r, int c) {
+    if (r < 0 || r >= R || c < 0 || c >= C) return;
+    if (grid[r][c] != '1') return;
+
+    grid[r][c] = '0';  // mark as visited
+
+    dfs(r - 1, c);
+    dfs(r + 1, c);
+    dfs(r, c - 1);
+    dfs(r, c + 1);
+}
+
+int main() {
+    cin >> R >> C;
+    grid.resize(R);
+    for (int i = 0; i < R; ++i)
+        cin >> grid[i];
+
+    int islands = 0;
+    for (int i = 0; i < R; ++i) {
+        for (int j = 0; j < C; ++j) {
+            if (grid[i][j] == '1') {
+                islands++;   // found a new island
+                dfs(i, j);   // sink the whole island
+            }
+        }
+    }
+
+    cout << islands << endl;
+    return 0;
+}
+```
+
+---
+
+write a problem by using dynamic programming.
